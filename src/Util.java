@@ -4,19 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Util {
-    public static <T> void printList(List<T> list) {
-        String sList = list.stream()
-                .map(o -> o == null ? "null" : o.toString())
-                .collect(Collectors.joining(", ", "[", "]"));
-        System.out.println(sList);
-    }
-
-    public static <T> String getListString(List<T> list) {
-        return list.stream()
-                .map(o -> o == null ? "null" : o.toString())
-                .collect(Collectors.joining(", ", "[", "]"));
-    }
-
     public static boolean isPrime(int n) {
         if (n < 2) return false;
         if (n == 2) return true;

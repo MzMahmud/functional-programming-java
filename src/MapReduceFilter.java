@@ -6,29 +6,25 @@ import java.util.stream.Collectors;
 public class MapReduceFilter {
     public static void main(String[] args) {
         List<Integer> numbers = Arrays.asList(1,8,11,13,7,9,7,4,23,1,-1,null,23,45,null,-8,0);
-        System.out.println("numbers");
-        Util.printList(numbers);
+        System.out.println("numbers " + numbers);
 
         List<Integer> nonNullNumbers = numbers.stream()
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
-        System.out.println("nonNullNumbers");
-        Util.printList(nonNullNumbers);
+        System.out.println("nonNullNumbers " + nonNullNumbers);
 
         List<Integer> distinctPositiveNumbers = nonNullNumbers.stream()
                 .distinct()
                 .filter(n -> n > 0)
                 .collect(Collectors.toList());
-        System.out.println("positiveNumbers");
-        Util.printList(distinctPositiveNumbers);
+        System.out.println("distinctPositiveNumbers " + distinctPositiveNumbers);
 
         List<Integer> sortedPrimes = distinctPositiveNumbers.stream()
                 .filter(Util::isPrime)
                 // .sorted() // ascending
                 .sorted((a,b) -> b - a) // descending
                 .collect(Collectors.toList());
-        System.out.println("sortedPrimes");
-        Util.printList(sortedPrimes);
+        System.out.println("sortedPrimes " + sortedPrimes);
 
         long sumSortedPrimes = sortedPrimes.stream()
                 .mapToInt(Integer::new)

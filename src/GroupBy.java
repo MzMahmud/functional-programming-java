@@ -11,7 +11,7 @@ public class GroupBy {
 
         Map<Integer, List<User>> groupUsersByAge = Util.users.stream()
                 .collect(groupingBy(User::getAge));
-        groupUsersByAge.forEach((age,users) -> System.out.println(age + " : " + Util.getListString(users)));
+        groupUsersByAge.forEach((age,users) -> System.out.println(age + " : " + users));
 
 
         // group users by age
@@ -27,6 +27,6 @@ public class GroupBy {
                                               .collect(toList())
                         )
                 ));
-        groupUserNameByAge.forEach((age,userNames) -> System.out.println(age + " : " + Util.getListString(userNames)));
+        groupUserNameByAge.forEach((age,userNames) -> System.out.println(age + " : " + userNames));
     }
 }
