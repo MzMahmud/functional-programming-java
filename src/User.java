@@ -15,17 +15,17 @@ public class User {
         this.school = school;
     }
 
-    int getAge(){
-        return  dateOfBirth.until(LocalDate.now()).getYears();
+    int getAge() {
+        return dateOfBirth.until(LocalDate.now()).getYears();
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", school='" + school + '\'' +
-                '}';
+               "id=" + id +
+               ", name='" + name + '\'' +
+               ", dateOfBirth=" + dateOfBirth +
+               ", school='" + school + '\'' +
+               '}';
     }
 }

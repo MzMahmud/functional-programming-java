@@ -12,10 +12,10 @@ public class IterateWithIntStream {
 
         int N = 10;
         List<Integer> firstNPrimes = IntStream.iterate(2, n -> n + 1)
-                .filter(Util::isPrime)
-                .limit(N)
-                .boxed() // boxed is important because IntStream is a stream of int primitive
-                .collect(Collectors.toList());
+                                              .filter(Util::isPrime)
+                                              .limit(N)
+                                              .boxed() // boxed is important because IntStream is a stream of int primitive
+                                              .collect(Collectors.toList());
         System.out.println("firstNPrimes " + firstNPrimes);
     }
 }
