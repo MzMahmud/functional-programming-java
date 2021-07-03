@@ -7,7 +7,7 @@ public class IterateWithIntStream {
     public static void main(String[] args) {
         int[] fistTenIntegers = IntStream.range(0, 11).toArray(); // range(startInclusive, endExclusive)
         System.out.println("fistTenIntegers " + Arrays.toString(fistTenIntegers));
-        fistTenIntegers = IntStream.rangeClosed(0, 10).toArray(); // rangeClosed(startInclusive,endInclusive)
+        fistTenIntegers = IntStream.rangeClosed(0, 10).toArray(); // rangeClosed(startInclusive, endInclusive)
         System.out.println("fistTenIntegers " + Arrays.toString(fistTenIntegers));
 
         int N = 10;

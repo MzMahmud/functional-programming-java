@@ -34,7 +34,7 @@ public class MapReduceFilter {
         long productWithReduce = numbers.stream()
                                         .filter(Objects::nonNull)
                                         .filter(n -> n > 0)
-                                        .mapToLong(Long::new)
+                                        .mapToLong(Integer::longValue)
                                         .reduce(1L, (a, b) -> a * b);
         System.out.println("productWithReduce " + productWithReduce);
     }
