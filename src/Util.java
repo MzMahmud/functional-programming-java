@@ -1,7 +1,6 @@
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Util {
     public static boolean isPrime(int n) {
@@ -12,6 +11,13 @@ public class Util {
             if (n % d == 0)
                 return false;
         return true;
+        /*
+        above loop can also be replaced with this functional style
+        return !IntStream.iterate(3, d -> d + 2)
+                         .filter(d -> d * d <= n)
+                         .mapToObj(d -> n % d == 0)
+                         .findFirst()
+                         .orElse(false);*/
     }
 
     public static List<User> users = Arrays.asList(
