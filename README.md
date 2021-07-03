@@ -1,7 +1,7 @@
 # Functional Programming with Java
 
 The first time I got introduced to functional programming from Erfan Bhai. He is my line manager in REVE Systems.
-I was hooked with Java `stream` API. This repository is the acts as a reference for my learning of Java `strema` API.
+I was hooked with Java `stream` API. This repository acts as a reference for my learning of Java `strema` API.
 
 ## Resources
 - I have found Venkat Subramaniam in youtube. He has an amazing style of presentation. Here is his book on Functional Programming in Java.
