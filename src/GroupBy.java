@@ -28,6 +28,26 @@ public class GroupBy {
                                                         .collect(toList())
                                   )
                           ));
+        System.out.println("groupUserNameByAge with collectingAndThen");
         groupUserNameByAge.forEach((age, userNames) -> System.out.println(age + " : " + userNames));
+
+        // above work can be simplified into
+        // group by age, map grouped users to name and make a list
+        groupUserNameByAge = Util.users.stream()
+                                       .collect(groupingBy(
+                                               User::getAge,
+                                               mapping(user -> user.name, toList())
+                                       ));
+        System.out.println("groupUserNameByAge with mapping");
+        groupUserNameByAge.forEach((age, userNames) -> System.out.println(age + " : " + userNames));
+
+        Map<String, String> commaSeperatedUserNamesBySchool =
+                Util.users.stream()
+                          .collect(groupingBy(
+                                  user -> user.school,
+                                  mapping(user -> user.name, joining(","))
+                          ));
+        System.out.println("commaSeperatedUserNamesBySchool with mapping");
+        commaSeperatedUserNamesBySchool.forEach((school, userNames) -> System.out.println(school + " : " + userNames));
     }
 }
