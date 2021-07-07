@@ -19,9 +19,7 @@ public class Util {
         if (n == 2) return true;
         if (n % 2 == 0) return false;
         return IntStream.iterate(3, d -> d * d <= n, d -> d + 2)
-                        .filter(d -> n % d == 0)
-                        .findFirst()
-                        .isEmpty();
+                        .noneMatch(d -> n % d == 0);
     }
 
     public static List<User> users = Arrays.asList(
