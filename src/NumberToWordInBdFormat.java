@@ -31,7 +31,7 @@ public class NumberToWordInBdFormat {
     public static String convertToWord(String numStr, String language) {
         language = language.toLowerCase();
         if (numStr.length() <= 7)
-            return convertToWordBelowCrore(numStr, language);
+            return convertToWordBelowCrore(getBangladeshiNumberFormat(numStr), language);
 
         String[] lakhCrore = getLakhCroreSplit(numStr);
 
