@@ -118,7 +118,6 @@ public class BangladeshiNumberFormatUtil {
 
         String const100 = constantByLanguage.get(language + "100");
         return numberToWord.get(hundredthDigit)
-                           .concat(" ")
                            .concat(numberToWord.get(const100))
                            .concat(" ")
                            .concat(convertToWordBelowHundred(belowHundred, language));
