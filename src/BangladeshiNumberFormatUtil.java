@@ -3,7 +3,7 @@
  * @author Moaz Mahmud
  * @Date 13 July 2021
  * @Usage
- * static String getBangladeshiNumberFormat(String numStr)
+ * static String getFormattedNumber(String numStr)
  *               given a number String, return the Bangladeshi Number Format
  *               Bangladeshi Number Format is the Crore-Lakh System seperated by Comma
  *
@@ -15,23 +15,23 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class NumberToWordInBdFormat {
+public class BangladeshiNumberFormatUtil {
 
-    public static String getBangladeshiNumberFormat(String numStr) {
+    public static String getFormattedNumber(String numStr) {
         if (numStr.length() <= 7)
-            return getBangladeshiNumberFormatBelowLakh(numStr);
+            return getFormattedNumberBelowCrore(numStr);
 
         String[] lakhCrore = getLakhCroreSplit(numStr);
 
-        return getBangladeshiNumberFormat(lakhCrore[1])
+        return getFormattedNumber(lakhCrore[1])
                 .concat(",")
-                .concat(getBangladeshiNumberFormatBelowLakh(lakhCrore[0]));
+                .concat(getFormattedNumberBelowCrore(lakhCrore[0]));
     }
 
     public static String convertToWord(String numStr, String language) {
         language = language.toLowerCase();
         if (numStr.length() <= 7)
-            return convertToWordBelowCrore(getBangladeshiNumberFormat(numStr), language);
+            return convertToWordBelowCrore(getFormattedNumber(numStr), language);
 
         String[] lakhCrore = getLakhCroreSplit(numStr);
 
@@ -40,12 +40,12 @@ public class NumberToWordInBdFormat {
                 .concat(constantByLanguage.get(language + "Crore"))
                 .concat(" ")
                 .concat(convertToWordBelowCrore(
-                        getBangladeshiNumberFormat(lakhCrore[0]),
+                        getFormattedNumber(lakhCrore[0]),
                         language
                 ));
     }
 
-    private static String getBangladeshiNumberFormatBelowLakh(String numStr) {
+    private static String getFormattedNumberBelowCrore(String numStr) {
         StringBuilder reverseFormattedNumber = new StringBuilder();
         int charCount = 0;
         for (int i = numStr.length() - 1; i >= 0; i--) {
