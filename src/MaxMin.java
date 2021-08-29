@@ -33,9 +33,9 @@ public class MaxMin {
         System.out.println("firstLongestName " + firstLongestName);
 
         String lastLongestName = Util.users.stream()
-                                            .map(user -> user.name)
-                                            .max(comparingInt(String::length).thenComparing(String::compareTo))
-                                            .orElseThrow(NoSuchFieldException::new);
+                                           .map(user -> user.name)
+                                           .max(comparingInt(String::length).thenComparing(String::compareTo))
+                                           .orElseThrow(NoSuchFieldException::new);
         System.out.println("lastLongestName " + lastLongestName);
     }
 }
