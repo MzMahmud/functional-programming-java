@@ -29,6 +29,8 @@ public class Util {
             new User("Jane", LocalDate.of(1999, 4, 1), "Harvard"),
             new User("Henry", LocalDate.of(1996, 11, 1), "MIT"),
             new User("Michael", LocalDate.of(1997, 1, 1), "Stanford"),
+            new User("Rachael", LocalDate.of(1994, 2, 1), "UCLA"),
+            new User("Watsonn", LocalDate.of(1994, 2, 1), "UCLA"),
             new User("Natan", LocalDate.of(1998, 1, 1), "MIT")
     );
 }
