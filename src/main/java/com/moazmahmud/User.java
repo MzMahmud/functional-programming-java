@@ -1,3 +1,5 @@
+package com.moazmahmud;
+
 import java.time.LocalDate;
 import java.util.Comparator;
 
@@ -21,7 +23,7 @@ public class User implements Comparable<User> {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "com.moazmahmud.User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
@@ -31,7 +33,7 @@ public class User implements Comparable<User> {
 
     @Override
     public int compareTo(User other) {
-        // (User u) -> u.name is important because without it java has no clue about the type of the Comparator<T>
+        // (com.moazmahmud.User u) -> u.name is important because without it java has no clue about the type of the Comparator<T>
         return Comparator.comparing((User u) -> u.name)
                          .thenComparingInt(User::getAge)
                          .thenComparing(u -> u.school)
