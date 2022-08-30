@@ -8,14 +8,14 @@ import java.util.stream.Collectors;
 
 @ToString
 public class Page<T> {
-    List<T> data = new ArrayList<>();
+    List<T> data;
     int pageIndex;
     int pageSize;
     int totalPages;
     boolean isFirstPage;
     boolean isLastPage;
 
-    public Page<T> moveToNextPage(List<T> listOfT) {
+    public Page<T> getNextPage(List<T> listOfT) {
         var nextPage = new Page<T>();
         nextPage.pageIndex = pageIndex + 1;
         nextPage.pageSize = pageSize;

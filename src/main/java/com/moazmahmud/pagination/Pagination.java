@@ -9,8 +9,9 @@ public class Pagination {
         List<Page<T>> pages = new ArrayList<>();
         int index = 0, size = listOfT.size();
         while (index < size) {
-            Page<T> page = new Page<>();
+            var page = new Page<T>();
             page.pageIndex = pages.size();
+            page.data = new ArrayList<>();
             page.pageSize = pageSize;
             page.isFirstPage = index == 0;
             while (index < size && page.data.size() < pageSize) {
@@ -26,7 +27,7 @@ public class Pagination {
 
     public static <T> Stream<Page<T>> getPageStream(List<T> listOfT, int pageSize) {
         int totalPages = getTotalPages(listOfT.size(), pageSize);
-        return Stream.<Page<T>>iterate(getSeedPage(pageSize, totalPages), page -> page.moveToNextPage(listOfT))
+        return Stream.iterate(getSeedPage(pageSize, totalPages), (Page<T> page) -> page.getNextPage(listOfT))
                      .skip(1)
                      .limit(totalPages);
     }

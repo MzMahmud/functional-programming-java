@@ -22,7 +22,7 @@ class PaginationTest {
                 IntStream.rangeClosed(1, 15)
                          .boxed()
                          .toList();
-        Pagination.getPageStream(integerList, 2)
+        Pagination.getPageStream(integerList, 5)
                   .forEach(System.out::println);
     }
 }
