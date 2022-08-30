@@ -26,11 +26,9 @@ public class Pagination {
 
     public static <T> Stream<Page<T>> getPageStream(List<T> listOfT, int pageSize) {
         int totalPages = getTotalPages(listOfT.size(), pageSize);
-        return Stream.<Page<T>>iterate(
-                             getSeedPage(pageSize, totalPages),
-                             page -> page.pageIndex < totalPages,
-                             page -> page.moveToNextPage(listOfT))
-                     .skip(1);
+        return Stream.<Page<T>>iterate(getSeedPage(pageSize, totalPages), page -> page.moveToNextPage(listOfT))
+                     .skip(1)
+                     .limit(totalPages);
     }
 
     private static <T> Page<T> getSeedPage(int pageSize, int totalPages) {
