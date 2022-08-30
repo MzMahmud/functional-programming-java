@@ -3,16 +3,15 @@ package com.moazmahmud.pagination;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 class PaginationTest {
     @Test
     void testGetPageList() {
         List<Integer> integerList =
-                Stream.iterate(1, n -> n + 1)
-                      .limit(15)
-                      .collect(Collectors.toList());
+                IntStream.rangeClosed(1, 15)
+                         .boxed()
+                         .toList();
         Pagination.getPageList(integerList, 2)
                   .forEach(System.out::println);
     }
@@ -20,9 +19,9 @@ class PaginationTest {
     @Test
     void testGetPageStream() {
         List<Integer> integerList =
-                Stream.iterate(1, n -> n + 1)
-                      .limit(15)
-                      .collect(Collectors.toList());
+                IntStream.rangeClosed(1, 15)
+                         .boxed()
+                         .toList();
         Pagination.getPageStream(integerList, 2)
                   .forEach(System.out::println);
     }
